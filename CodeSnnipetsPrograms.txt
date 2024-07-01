@@ -1,0 +1,1154 @@
+Prefix :
+Binnary search
+Description :
+This is a function for searching an element in the shorted arrays.Time Complaxity of this search is O(log n).Tis is only useful at the time of the when we have shorted array.
+Code :
+int BinarySearchInArray(int key, int size, int array[]);// a key to find ,the size of array,the array.
+int BinarySearchInArray(int key, int size, int array[])
+{
+    int start = 0;
+    int End = size;
+    while (End >= start)
+    {
+        int mid = (start + End) / 2;
+        if (key == array[mid])
+        {
+            return mid;
+        }
+        else if (key >= array[mid])
+        {
+            start = mid + 1;
+        }
+        else
+        {
+            End = mid - 1;
+        }
+    }
+    return -1;
+}
+
+Prefix :
+Factorial Calculator
+Description :
+This is a function for finding the factorial of the enter number you have to enter a number as parameter.Time Complaxity of this code is O(n).Iterative way.
+Code :
+int FactoralCalculator (int number);// the number whose factorial you want to calculate.
+int FactoralCalculator (int number){
+    int factorial = 1;
+    if (number > 0)
+    {
+        for (int i = number; i > 0; i--)
+        {
+            factorial *= i ;
+        }
+    }
+    else if (number == 0)
+    {
+        factorial = 1;
+    }
+    else
+    {
+        cout << "Please enter a valid number to calculate the Factorial";
+    }
+    return factorial;
+}
+
+Prefix :
+Decimal To Binnary
+Description :
+This is a function for Convertindg a Decimal number into a binnary number.Time Complaxity of this code is O(n).
+Code :
+int DecimalToBinnaryConvertor ( int number_Decimal);
+int DecimalToBinnaryConvertor ( int number_Decimal){
+    int number_Binnary = 0;
+    int base = 1;
+    while (number_Decimal)
+    {
+        int digits = number_Decimal % 2;
+        number_Binnary = base * digits + number_Binnary ;
+        number_Decimal /= 2;
+        base *= 10;
+    }
+    return number_Binnary;
+}
+
+Prefix :
+Binnary To Decimal
+Description :
+This is a function for Convertindg a binnary number into a decimal number.Time Complaxity of this code is O(n).
+Code :
+double BinnaryToDecimalConvertor ( int number_Binnary);
+double BinnaryToDecimalConvertor ( int number_Binnary){
+    double number_Decimal = 0;
+    int i = 1;
+    while (number_Binnary)
+    {
+        int digits = number_Binnary % 10;
+        number_Decimal += digits * i;
+        number_Binnary /= 10;
+        i *= 2;
+    }
+    return number_Decimal;
+}
+
+Prefix :
+Number of digits Counter
+Description :
+This is a function for Counting the number of digits in the enterned integer.Time Complaxity of this code is O(1).
+Code :
+int numberofDigittsInthenumber(int number);
+int numberofDigittsInthenumber(int number)
+{
+    int i = 0;
+    while (number)
+    {
+        i++;
+        number /= 10;
+    }
+    return i;
+}
+
+Prefix :
+Amstongnumber Checker
+Description :
+This is a function for checking the number given in the parmeters of the function is amastrong or not . This snippet also contain a function for number of digits in the enterd function. This function to implement one should include math.h file.
+Code :
+int numberofDigittsInthenumber(int number);
+int numberofDigittsInthenumber(int number)
+{
+    int i = 0;
+    while (number)
+    {
+        i++;
+        number /= 10;
+    }
+    return i;
+}
+void armstrongChecker(int number);
+void armstrongChecker(int number)
+{
+    double sum = 0;
+    int digits, temp;
+    temp = number;
+    while (number)
+    {
+        digits = number % 10;
+        sum += pow(digits,  numberofDigittsInthenumber(number));
+        number /= 10;
+    }
+    if (sum == temp)
+    {
+        cout << "The Number you enterd is a Armstrong number " << endl;
+    }
+    else
+    {
+        cout << "The Number you enterd in not an armstrong number " << endl;
+    }
+}
+
+Prefix :
+Decimal To Hexadecimal
+Description :
+This is a function for Convertindg a Decimal number into a Hexadecimal number.This function return a string Hexadecimal number. The Time Complaxity of this code is O(n).
+Code :
+string DecimalToHexadecimalConvertor(int decimal_no);
+string DecimalToHexadecimalConvertor(int decimal_no)
+{
+    int x = 1;
+    string answer;
+    while (x <= decimal_no)
+    {
+        x *= 16;
+    }
+    x /= 16;
+    while (x > 0)
+    {
+        int last_Digit = decimal_no / x;
+        decimal_no -= last_Digit * x;
+        x /= 16;
+        if (last_Digit <= 9)
+        {
+            answer = answer + to_string(last_Digit);
+        }
+        else
+        {
+            char c = 'A' - last_Digit + 10;
+            answer.push_back(c);
+        }
+    }
+    return answer;
+}
+Prefix :
+Decimal To Octal
+Description :
+This is a function for Convertindg a Decimal number into a Octal number.This function return a integer wich is a Octal number. The Time Complaxity of this code is O(n).
+Code :
+int DecimalToOctalConvertor (int decimal);
+int DecimalToOctalConvertor (int decimal)
+{
+    int octal = 0;
+    while (decimal )
+    {
+        int remainder;
+        remainder = decimal % 8;
+        octal += remainder*10;
+        decimal /= 8; 
+    }
+    return octal;
+}
+Prefix :
+Even Or Odd number Checker
+Description :
+This is a function for Checkin the number pass in the parameter of the function is even  or odd. The Time Complaxity of this code is O(1).
+Code :
+void EvenOddChecker(int);
+void EvenOddChecker(int num)
+{
+    if (num % 2 == 0)
+    {
+        cout << "The number enterd is even\n";
+    }
+    else
+    {
+        cout << "The number entered is odd\n";
+    }
+    return;
+}
+
+Prefix :
+All Factors Printer
+Description :
+This is a function for printing all the factors of the number which is passed in the parameters of the function .
+Code :
+void FactorsPrinter(int number);
+void FactorsPrinter(int number)
+{
+    cout << "The factors of the the number have you enterd is :" << endl;
+    cout << "1";
+    for (int i = 2; i <= number; i++)
+    {
+        if (number % i == 0)
+        {
+            cout << " * " << i;
+        }
+    }
+}
+
+Prefix :
+Fibnnacci Series Printer upto k th element
+Description :
+This is a function for printing the elements of Fibnnacci series upto enterd k'th element passed in the parameters .
+Code :
+void FibonnacciSeriesPrinter(int n);
+void FibonnacciSeriesPrinter(int n)
+{
+    int a = 0, b = 1;
+    cout << "The fibonnacci Series you wanted is :" << endl;
+
+    for (int i = 1; i < n; i++)
+    {
+        if (i == 1)
+        {
+            cout << a << " ";
+        }
+        int temp = b;
+        cout << b << " ";
+        b += a;
+        a = temp;
+    }
+}
+
+Prefix :
+Hexadecimal To Decimal Convertor
+Description :
+This is a function for Converting the  hexadecimal number of datatype string which is passed in the  function as parameter  and returs a integer decimal number. The Time Complaxity of this code is O(n).
+Code :
+int HexadecimalToDecimal (string n);
+int HexadecimalToDecimal (string n)
+{
+    int answer = 0;
+    int x = 1;
+    int s = n.size();
+    for (int i = s-1; i >= 0; i--)
+    {
+        if (n[i] >= '0' && n[i] <= '9')
+        {
+            answer += x*(n[i] - '0');
+        }
+        else if (n[i] >= 'A' && n[i] <= 'F')
+        {
+            answer += x*(n[i]- 'A'+10);
+        }
+        x *= 16;
+    }
+    return answer;        
+}
+
+Prefix :
+Maximum and Minimum of an Array
+Description :
+This is a function for finding the maximum and minimum number in the inputed array which is passed in the function as parameter.For this function to emplement one have to include limit file in your cpp Code. The Time Complaxity of this code is O(n).
+Code :
+int MaximumMinimumNum(int num[3]);
+int MaximumMinimumNum(int num[3])
+{
+    int max =INT_MIN, min = INT_MAX;
+    for (int i = 0; i < 3; i++)
+    {
+        if (max < num[i])
+        {
+            max = num[i];
+        }
+        if (min > num[i])
+        {
+            min = num[i];
+        }
+    }
+    cout << "The Maximum of the entered number is :" << max << endl;
+    cout << "The Minimum of the entered number is :" << min << endl;
+    return 0;
+}
+
+Prefix :
+Multiplication Table Printer
+Description :
+This is a function for printing the multiplication table of the number which is passed as parameter in the function. The Time Complaxity of this code is O(n).
+Code :
+void MultiplicationTableDisplay(int);
+void MultiplicationTableDisplay(int number)
+{
+    for (int i = 1; i < 11; i++)
+    {
+        cout << number << " * " << i << " = " << i * number << endl;
+    }
+    return;
+}
+
+Prefix :
+Octal To Decimal Convertor
+Description :
+This is a function for Converting the  Octal number of datatype Integer which is passed in the  function as parameter  and returs a integer decimal number. The Time Complaxity of this code is O(n).
+Code :
+int OctalToDecimalConvertor (int octal);
+int OctalToDecimalConvertor (int octal)
+{
+    int org_octal = octal;
+    int decimal = 0;
+    int No_of_dig = 0;
+    while (octal)
+    {
+        octal /= 10;
+        No_of_dig ++;
+    }
+    for (int i = 0; i < No_of_dig; i++)
+    {
+        int dig;
+        dig = org_octal%10;
+        decimal += dig*pow(8,i);
+        org_octal /= 10;
+    }
+    return decimal;
+}
+
+Prefix :
+Prime Number Checker
+Description :
+This is a function for Checking the number which is passed as parameter in the function is prime or not. The Time Complaxity of this code is O(n).
+Code :
+void PrimeNumberChecker(int);
+void PrimeNumberChecker(int number)
+{
+    for (int i = 2; i <= number / 2; i++)
+    {
+        if (number % i == 0)
+        {
+            cout << "The Number You Entered Is Not Prime" << endl;
+            return ;
+        }
+    }
+    cout << "The Number You Enterd Is Prime" << endl;
+    return ;
+}
+
+Prefix :
+Print All the Prime Number in the given range
+Description :
+This is a function for Printing all the prime numbers between the lower and upper bound pass as parameter in the function. The Time Complaxity of this code is O(Square(n)).
+Code :
+void PrimeNumberDisplayInRange(int lower_number, int upper_numer);
+void PrimeNumberDisplayInRange(int lower_number, int upper_numer)
+{
+    int j = 0;
+    for (int i = lower_number; i <= upper_numer; i++)
+    {
+        for (j = 2; j < i; j++)
+        {
+            if (i % j == 0)
+            {
+                break;
+            }
+        }
+        if (i == j)
+        {
+            cout << i << " ";
+        }
+    }
+}
+
+Prefix :
+Print all odd numbers form 0 to n
+Description :
+This is a function for Printing all the odd numbers between 0 to n which is pass as parameter in the function. The Time Complaxity of this code is O(n).
+Code :
+void PrintOddNumber(int);
+void PrintOddNumber(int number)
+{
+    for (int i = 1; i < number; i++)
+    {
+
+        if (i % 2 == 0)
+        {
+            continue;
+        }
+        else
+        {
+            cout << i << " ";
+        }
+    }
+}
+
+Prefix :
+Reversing an Integer
+Description :
+This is a function for Reversing an Integer which is passed as parameter in the function. The Time Complaxity of this code is O(n).
+Code :
+int ReverseOfNumber(int number);
+int ReverseOfNumber(int number)
+{
+    int rev_number = 0;
+    while (number)
+    {
+        int digits = number % 10;
+        rev_number = rev_number * 10 + digits;
+        number /= 10;
+    }
+    return rev_number;
+}
+
+Prefix :
+Sum of first n Natural number
+Description :
+This is a function for returning integer which is sum of first n natural number where n is an integer passed as parameter. The Time Complaxity of this code is O(n).
+Code :
+int SumOfFirstNNaturalNo(int);
+int SumOfFirstNNaturalNo(int number){
+    int sum=0;
+    for (int i = 1; i <= number; i++)
+    {
+        sum += i;
+    }
+    return sum;
+}
+
+Prefix :
+Implementing a queue using arrays.
+Description :
+This is the code for implementing a queue using an array.
+
+#include <iostream>
+using namespace std;
+
+class Queue {
+private:
+    int capacity;
+    int front;
+    int rear;
+    int size;
+    int *items;
+
+public:
+    Queue(int cap) {
+        capacity = cap;
+        front = 0;
+        rear = -1;
+        size = 0;
+        items = new int[capacity];
+    }
+void enqueue(int item) {
+        if (isFull()) {
+            cout << "Queue is full" << endl;
+            return;
+        }
+        rear = (rear + 1) % capacity;
+        items[rear] = item;
+        size++;
+    }
+int dequeue() {
+        if (isEmpty()) {
+            cout << "Queue is empty" << endl;
+            return -1;
+        }
+        int frontItem = items[front];
+        front = (front + 1) % capacity;
+        size--;
+        return frontItem;
+    }
+bool isEmpty() {
+        return size == 0;
+    }
+
+bool isFull() {
+        return size == capacity;
+    }
+Queue* copy() {
+        Queue* newQueue = new Queue(capacity);
+        newQueue->front = front;
+        newQueue->rear = rear;
+        newQueue->size = size;
+        for (int i = 0; i < capacity; ++i) {
+            newQueue->items[i] = items[i];
+        }
+        return newQueue;
+    }
+int peek() {
+        if (isEmpty()) {
+            cout << "Queue is empty" << endl;
+            return -1; 
+        }
+        return items[front];
+    }
+
+void clear() {
+        front = 0;
+        rear = -1;
+        size = 0;
+    }
+
+int frontElement() {
+        if (isEmpty()) {
+            cout << "Queue is empty" << endl;
+            return -1;
+        }
+        return items[front];
+    }
+
+int rearElement() {
+        if (isEmpty()) {
+            cout << "Queue is empty" << endl;
+            return -1;
+        }
+        return items[rear];
+    }
+
+int getSize() {
+        return size;
+    }
+
+void display() {
+        if (isEmpty()) {
+            cout << "Queue is empty" << endl;
+            return;
+        }
+        int i = front;
+        do {
+            cout << items[i] << " ";
+            i = (i + 1) % capacity;
+        } while (i != (rear + 1) % capacity);
+        cout << endl;
+    }
+    
+Queue* merge(Queue* otherQueue) {
+        Queue* mergedQueue = new Queue(capacity + otherQueue->capacity);
+        mergedQueue->front = front;
+        mergedQueue->rear = rear + otherQueue->size;
+
+        for (int i = front; i <= rear; ++i)
+            mergedQueue->enqueue(items[i]);
+
+        for (int i = otherQueue->front; i <= otherQueue->rear; ++i)
+            mergedQueue->enqueue(otherQueue->items[i]);
+
+        return mergedQueue;
+    }
+Queue* reverse() {
+        Queue* reversedQueue = new Queue(capacity);
+        int i = front;
+        while (i != (rear + 1) % capacity) {
+            reversedQueue->enqueue(items[i]);
+            i = (i - 1 + capacity) % capacity;
+        }
+        return reversedQueue;
+    }
+
+Prefix :
+Implementing a queue using Linked List.
+Description :
+This is the code for implementing a queue using a linked list.
+
+class Node {
+public:
+    int data;
+    Node* next;
+
+    Node(int value) {
+        data = value;
+        next = nullptr;
+    }
+};
+
+#include <iostream>
+using namespace std;
+
+class Queue {
+private:
+    Node* front;
+    Node* rear;
+    int size;
+    int capacity;
+
+public:
+    Queue(int cap) {
+        front = rear = nullptr;
+        size = 0;
+        capacity = cap;
+    }
+
+    void enqueue(int value) {
+        if (isFull()) {
+            cout << "Queue is full. Cannot enqueue." << endl;
+            return;
+        }
+
+        Node* newNode = new Node(value);
+        if (isEmpty()) {
+            front = rear = newNode;
+        } else {
+            rear->next = newNode;
+            rear = newNode;
+        }
+        size++;
+    }
+
+    void dequeue() {
+        if (isEmpty()) {
+            cout << "Queue is empty. Cannot dequeue." << endl;
+            return;
+        }
+
+        Node* temp = front;
+        front = front->next;
+        delete temp;
+        size--;
+        if (isEmpty()) {
+            rear = nullptr;
+        }
+    }
+
+    bool isEmpty() {
+        return size == 0;
+    }
+
+    bool isFull() {
+        return size == capacity;
+    }
+
+
+    Queue copy() {
+        Queue copiedQueue(capacity);
+        Node* temp = front;
+        while (temp != nullptr) {
+            copiedQueue.enqueue(temp->data);
+            temp = temp->next;
+        }
+        return copiedQueue;
+    }
+
+
+    int peek() {
+        if (isEmpty()) {
+            cout << "Queue is empty. Cannot peek." << endl;
+            return -1; 
+        }
+        return front->data;
+    }
+
+    void clear() {
+        while (!isEmpty()) {
+            dequeue();
+        }
+    }
+
+    int size() {
+        return size;
+    }
+
+
+
+    int frontElement() {
+        if (isEmpty()) {
+            cout << "Queue is empty. Cannot get front element." << endl;
+            return -1;
+        }else{
+        return front->data;
+        }
+    }
+
+
+
+    int rearElement() {
+        if (isEmpty()) {
+            cout << "Queue is empty. Cannot get rear element." << endl;
+            return -1;
+        }else{
+        return rear->data;
+        }
+    }
+
+
+    void display() {
+        if (isEmpty()) {
+            cout << "Queue is empty. Nothing to display." << endl;
+            return;
+        }
+        Node* temp = front;
+        cout << "Queue elements: ";
+        while (temp != nullptr) {
+            cout << temp->data << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+
+
+
+    void resize(int newCap) {
+        if (newCap < size) {
+            cout << "New capacity is less than current size. Cannot resize." << endl;
+            return;
+        }else{
+            capacity = newCapacity;
+        }    
+    }
+
+
+    void merge(Queue& q) {
+        while (!q.isEmpty()) {
+            enqueue(q.front->data);
+            q.dequeue();
+        }
+    }
+
+    void reverse() {
+        if (front == nullptr || front->next == nullptr) {
+            return;
+        }
+        Node* current = front;
+        Node* nextNode = nullptr;
+        Node* prevNode = nullptr;
+        while (current != nullptr) {
+            nextNode = current->next;
+            current->next = prevNode;
+            prevNode = current;
+            current = nextNode;
+        }
+        front = prevNode;
+    }
+};
+
+
+
+Prefix :
+Implementing a stack using array
+Description :
+This is the code for implementing a stack using an array.
+Code :
+
+#include <iostream>
+using namespace std;
+
+class Stack
+{
+private:
+    int MAX_SIZE; // Maximum size of the stack
+    int *stackArray;
+    int top; // Index of the top element
+
+public:
+    Stack(int MAX_SIZE) // Constructor
+    {
+        this->MAX_SIZE = MAX_SIZE;
+        top = -1;
+        stackArray = new int[MAX_SIZE];
+    }
+    void push(int element);      // Pushes an element onto the stack
+    int pop();                   // Pops the top element from the stack
+    bool isEmpty();              // Checks if the stack is empty
+    int getTopIndex();           // Returns the index of the top element
+    int getElementAt(int index); // Returns the element at the specified index
+};
+
+void Stack::push(int element)
+{
+    if (top == MAX_SIZE - 1)
+    {
+        // Stack is full
+        cout << "Stack Overflow!" << endl;
+        return;
+    }
+    top = top + 1;
+    stackArray[top] = element;
+}
+
+int Stack::pop()
+{
+    if (top == -1)
+    {
+        // Stack is empty
+        cout << "Stack Underflow!" << endl;
+        return -1; // Or throw an exception
+    }
+    return stackArray[top--];
+}
+
+bool Stack::isEmpty()
+{
+    if (top == -1)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+int Stack::getTopIndex()
+{
+    return top;
+}
+
+int Stack::getElementAt(int index)
+{
+    return stackArray[index];
+}
+
+int main()
+{
+    Stack stack(5);
+    stack.push(10);
+    stack.push(20);
+    stack.push(30);
+    stack.push(5);
+    cout << "Elements in the stack: ";
+    for (int i = stack.getTopIndex(); i >= 0; i--)
+    {
+        cout << stack.getElementAt(i) << " ";
+    }
+    cout << endl;
+
+    int p1 = stack.pop();
+    cout << "Popped element: " << p1 << endl;
+
+    cout << "Remaining elements in the stack: ";
+    for (int i = stack.getTopIndex(); i >= 0; i--)
+    {
+        cout << stack.getElementAt(i) << " ";
+    }
+    cout << endl;
+
+    if (stack.isEmpty())
+    {
+        cout << "Stack is empty!!" << endl;
+    }
+    else
+    {
+        cout << "stack is not empty" << endl;
+    }
+
+    return 0;
+}
+
+Prefix :
+Implementing a stack using Linked List
+Description :
+This is the code for implementing a stack using an Linked list.
+Code :
+#include <iostream>
+using namespace std;
+
+class node
+{
+public:
+    int val;
+    node *next;
+
+    node(int value)
+    {
+        val = value;
+        next = nullptr;
+    }
+};
+
+class stack
+{
+private:
+    node *top;
+    int size;
+
+public:
+    stack(int value)
+    {
+        node *newnode = new node(value);
+        top = newnode;
+        size = 1;
+    }
+    void get_top()
+    {
+        cout << "Top element in stack is: " << top->val << endl;
+    }
+    void size_stack()
+    {
+        cout << "size of the stack is: " << size << endl;
+    }
+    void push_stack(int value)
+    {
+        node *newnode = new node(value);
+        newnode->next = top;
+        top = newnode;
+        size++;
+    }
+    int pop_stack()
+    {
+        if (size < 0)
+        {
+            cout << "STACK IS EMPTY" << endl;
+        }
+        else
+        {
+            node *temp = top;
+            int pop_val = top->val;
+            top = top->next;
+            delete temp;
+            size--;
+            return pop_val;
+        }
+    }
+    void isempty()
+    {
+        if (size < 0)
+        {
+            cout << "STACK IS EMPTY" << endl;
+        }
+        else
+        {
+            cout << "STACK IS NOT EMPTY!" << endl;
+        }
+    }
+    void print_stack()
+    {
+        node *temp = top;
+        while (top)
+        {
+            cout << temp->val << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+};
+
+int main()
+{
+
+    stack *st = new stack(4);
+    st->push_stack(5);
+    st->push_stack(6);
+    st->push_stack(7);
+    st->push_stack(8);
+    st->get_top();
+    st->pop_stack();
+    st->isempty();
+    st->print_stack();
+
+        return 0;
+}
+
+Prefix :
+program in evaluate from infix to postfix using stack.
+a stack.
+Description :
+Implementation of C++ program to evaluate a infix to postfix expression using stack.
+
+Code :
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
+class Node{
+    public :
+  int size;
+  int top;
+  char *arr;
+};
+void push(class Node *s,char a){
+        s ->top++;
+        s->arr[s->top] = a;
+}
+char pop(class Node *s){
+    char val = s->arr[s->top];
+    s->top--;
+    
+    return val;
+}
+int isOperator(char a){
+    if(a == '+' || a == '-' || a == '*' || a == '/'){
+        return 1;
+    }
+    return 0;
+}
+int prec(char x){
+    if(x == '*' || x == '/'){
+        return 2;
+    }
+    else if(x == '+' || x == '-'){
+        return 1;
+    }
+    return 0;
+}
+
+char stackTop(class Node *s){
+    return s->arr[s->top];
+}
+int isEmpty(class Node *s){
+    if(s->top == -1){
+        return 1;
+    }
+    return 0;
+}
+void infixToPostfix(char *exp){
+    class Node *s;
+    s = (class Node*)malloc(sizeof(class Node));
+    s->size = 100;
+    s->top = -1;
+    s->arr = (char *)malloc(s->size*sizeof(char));
+    int j= 0;
+    int i = 0;
+    char exp2[100];
+    while(exp[i]!= '\0'){
+        if(!isOperator(exp[i])){
+            exp2[j]= exp[i];
+            j++; 
+            i++;
+        }
+        else{
+            if(prec(exp[i])>prec(stackTop(s))){
+                push(s,exp[i]);
+                i++;
+            }
+            else{
+                exp2[j] = pop(s);
+                j++;
+            }
+        }
+    }
+    while(!isEmpty(s)){
+        exp2[j] = pop(s);
+        j++;
+    }
+exp2[j] = '\0';
+ 
+     cout<<exp2<<endl;
+  
+}
+
+int main() {
+    char *exp = "2+3*1+5";
+infixToPostfix(exp);
+
+    return 0;
+}
+
+Prefix :
+program to check if a given string of parentheses is balanced.
+a stack.
+Description :
+Implementation of C++ program to check if a given string of parentheses is balanced.The string consists of only parentheses characters ’(’, ’)’, ’’, ’’, ’[’ and ’]’.The program should return true if the parentheses are balanced and false otherwise.
+
+Code :
+#include <iostream>
+#include <cstdlib>
+#include <cstring>
+using namespace std;
+class Node {
+    public :
+    int size;
+    int top;
+    char *arr;
+};
+
+int match(char a,char b){
+    if((a == '(' && b == ')') ||( a == '{' && b == '}' )||( a == '[' && b == ']')){
+        return 1;
+    }
+    return 0;
+}
+int isEmpty(class Node *s){
+    if(s->top == -1){
+        return 1;
+    }
+    return 0;
+}
+
+void push(class Node *s,char x){
+    s->top++;
+    s->arr[s->top] = x;
+}
+
+char pop(class Node *s){
+    int val = s->arr[s->top];
+    s->top--;
+  
+  return val;  
+}
+int Parenthesis(char *exp){
+    
+    class Node *stack;
+    stack = (class Node*)malloc(sizeof(class Node));
+    stack -> size = 100;
+    stack -> top = -1;
+    stack -> arr = (char*)malloc(stack->size*sizeof(char));
+    for(int i=0;exp[i]!='\0';i++){
+        if(exp[i] == '(' || exp[i] == '{' || exp [i] == '['){
+            push(stack,exp[i]);
+        }
+        else if(exp[i] == ')' || exp[i] == '}' || exp [i] == ']'){
+            if(isEmpty(stack)){
+                return 0;
+            }
+            char poped = pop(stack);
+     if(!match(poped,exp[i])){
+         return 0;
+     } 
+     }   
+  }
+  if(isEmpty(stack)){
+      return 1;
+  }
+  else{
+  return 0;
+  }
+}
+int main() {
+char exp = "{1}-2(2-3}";
+    
+    if((Parenthesis(exp))){
+        cout<<"Expression is balanced"<<endl;
+    }
+    else{
+        cout <<"Expression is not balanced"<<endl;
+    }
+
+    return 0;
+}
+
+
+
